@@ -16,6 +16,11 @@ export default class BaseCard extends React.Component {
     this._onPress = onPress
   }
 
+  componentDidUpdate(nextProps) {
+    if(this._data !== nextProps.data) {
+      this._data = nextProps.data
+    }
+  }
 /*  componentWillReceiveProps(nextProps) {
     if(this._data !== nextProps.data) {
       this._data = nextProps.data

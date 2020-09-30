@@ -1,30 +1,29 @@
 import { Component } from 'react'
+import PagesManager from '../manager/PagesManager'
 
 export default class BaseHost extends Component{
 
   constructor(props) {
     super(props)
+    this.params = { } //页面跳转过来的参数
+    this.page = this.props.page
+    this.data = {} //网络请求返回的数据
+    this.data.header = {title : this.params.title}
   }
 
   componentDidMount() {//页面进入的时候会执行此方法
-  }
-
-  componentResume() { //页面返回的时候会执行此方法
-  }
-
-  componentPause() { //页面返回的时候会执行此方法
+    this._handle(Object.assign(this.params, {'method':'host_init'})) //逻辑页面可接收此参数执行生命周期相关的操作
   }
 
   componentWillUnmount() { //页面退出的时候会执行此方法
   }
 
-  /**
-   * 处理逻辑和页面的地方
-   * @param navigate
-   * @private
-   */
+  _refresh = (params) => { //页面刷新预置方法
+    this._handle(Object.assign(params,{'method':'host_refresh'}))//host_refresh 会覆盖params中的method方法
+  }
+
   _handle = (navigate) => {
-    //LogicManager(this, navigate)
+    PagesManager.getLogic(this, navigate)
   }
 
   /**
@@ -42,6 +41,9 @@ export default class BaseHost extends Component{
     switch (navigate.type) {
       case 'back':
         this.props.navigation.goBack()
+        break
+      case 'handle':
+        this._handle(navigate)
         break
     }
   }

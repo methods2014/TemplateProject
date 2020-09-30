@@ -1,37 +1,40 @@
 import * as React from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, LogBox } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import home from './app/home'
+//import home from './app/home'
 import FloorHost from './app/frame/host/FloorHost'
 
 
-/*function home() {
-  return (
+function home() {
+  return <FloorHost page={'HomePage'} />
+/*  return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Home2222!</Text>
     </View>
-  );
-}*/
+  );*/
+}
 
 function list() {
-  return (
+  return <FloorHost page={'ListPage'} />
+/*  return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>list!</Text>
     </View>
-  );
+  );*/
 }
 
 function find() {
-  return (
+  return <FloorHost page={'FindPage'} />
+/*  return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>find!</Text>
     </View>
-  );
+  );*/
 }
 
 function mine() {
-  return <FloorHost page={{'name':'MinePage'}}/>
+  return <FloorHost page={'MinePage'} />
 /*  return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>mine!</Text>
@@ -42,6 +45,8 @@ function mine() {
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
+  //console.disableYellowBox = true;
+  LogBox.ignoreAllLogs(true)
   return (
     <Tab.Navigator initialRouteName="home" tabBarOptions={{
       activeTintColor: '#d81e06',
