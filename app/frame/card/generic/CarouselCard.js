@@ -9,22 +9,16 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
-//import { Carousel } from '@ant-design/react-native'
+import { Carousel } from '@ant-design/react-native'
 import { px2dp } from '../../utils/ScreenUtils'
+import BaseCard from "../base/BaseCard";
 
 const screenWidth = Dimensions.get('window').width
 
-export default class CarouselCard extends React.Component {
+export default class CarouselCard extends BaseCard{
 
   constructor(props) {
     super(props)
-    this._initData()
-  }
-
-  _initData(){
-    const { data, onPress} = this.props
-    this._data = data
-    this._onPress = onPress
   }
 
   _showItem = () => {
@@ -45,7 +39,9 @@ export default class CarouselCard extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {/*<Carousel
+        <Carousel
+          style={styles.swiperImage}
+          selectedIndex={0}
           dots={true}
           infinite={true}
           autoplay={true}
@@ -68,7 +64,7 @@ export default class CarouselCard extends React.Component {
           }}
         >
           {this._showItem()}
-        </Carousel>*/}
+        </Carousel>
       </View>
     )
   }
@@ -81,6 +77,6 @@ const styles = StyleSheet.create({
   },
   swiperImage: {
     width: screenWidth,
-    height: screenWidth * 70 / 375
+    height: screenWidth * 120 / 375
   }
 })

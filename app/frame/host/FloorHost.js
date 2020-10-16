@@ -31,7 +31,6 @@ export default class FloorHost extends BaseHost{
   }
 
   render() {
-    console.dir(this.data)
     return (
       <RootView style={styles.container}>
         {this.data.header ? <HeaderCard data={this.data.header} onPress={this._onPress} /> : null}

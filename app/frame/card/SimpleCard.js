@@ -6,21 +6,15 @@ import {
   Dimensions,
 } from 'react-native'
 import { px2sp, px2dp } from '../utils/ScreenUtils'
+import BaseCard from "./base/BaseCard";
 
 // 获得屏幕宽高
 const screenWidth = Dimensions.get('window').width
 
-export default class SimpleCard extends React.Component {
+export default class SimpleCard extends BaseCard{
 
   constructor(props) {
     super(props)
-    this._initData()
-  }
-
-  _initData(){
-    const { data, onPress} = this.props
-    this._data = data
-    this._onPress = onPress
   }
 
   render() {
@@ -35,14 +29,14 @@ export default class SimpleCard extends React.Component {
 const styles = StyleSheet.create({
   wrapper: {
     width: screenWidth,
-    height: (screenWidth - px2dp(32)) * 162 / 343,
+    height: (screenWidth - px2dp(32)) * 80 / 343,
     paddingHorizontal: px2dp(32),
     paddingTop: px2dp(20),
     paddingBottom: px2dp(16),
     flexDirection: 'column',
     alignItems:'center',
     justifyContent: 'center',
-    backgroundColor:'#fff0f0'
+    backgroundColor:'#fff'
   },
   title: {
     fontSize: px2sp(16),

@@ -44,7 +44,7 @@ export default class HeaderCard extends BaseCard {
     return (
       <View style={{ alignItems: 'center', justifyContent: 'center', height: px2dp(44) }}>
         <Text allowFontScaling={false}  numberOfLines={2} style={[styles.title, { color: '#8a8a8a', width, textAlign: 'center', marginLeft:px2dp(25), marginRight:px2dp(44) }]} >
-          {`${title} ${subTitle ? subTitle : ''}`}
+          {`${title ? title : ''} ${subTitle ? subTitle : ''}`}
         </Text>
       </View>
     )

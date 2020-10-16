@@ -32,11 +32,11 @@ export default class PagesManager{
    */
   static getPage(pageName, params){
     console.log('--- getPage --- pageName=' + pageName)
-    let retPage = ''
+    //let retPage = ''
     if(pageName){
       const map = new Map()
       //map.set('MinePage', MinePage)
-      retPage = map.get(pageName)
+      //retPage = map.get(pageName)
     }
 
     return fetch('http://127.0.0.1:3000/shop/' + pageName, {

@@ -24,8 +24,8 @@ function list() {
   );*/
 }
 
-function find() {
-  return <FloorHost page={'FindPage'} />
+function cart() {
+  return <FloorHost page={'CartPage'} />
 /*  return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>find!</Text>
@@ -62,11 +62,11 @@ function MyTabs() {
             style={{ width: 20, height: 20 }}
             source={focused ? require('./app/image/tab/list_check.png') :require('./app/image/tab/list.png')} />
         ),}}/>
-      <Tab.Screen name="find" component={find} options={{title:'发现',
+      <Tab.Screen name="cart" component={cart} options={{title:'购物车',
         tabBarIcon: ({ color, size,focused }) => (
           <Image
             style={{ width: 20, height: 20 }}
-            source={focused ? require('./app/image/tab/find_check.png') :require('./app/image/tab/find.png')} />
+            source={focused ? require('./app/image/tab/cart_check.png') :require('./app/image/tab/cart.png')} />
         ),}}/>
       <Tab.Screen name="mine" component={mine} options={{title:'我的',
         tabBarIcon: ({ color, size,focused }) => (
