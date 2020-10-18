@@ -45,6 +45,9 @@ export default class BaseHost extends Component{
       case 'handle':
         this._handle(navigate)
         break
+      case 'more':
+        this._refresh({})
+        break
     }
   }
 }

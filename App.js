@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //import home from './app/home'
 import FloorHost from './app/frame/host/FloorHost'
+import ListHost from "./app/frame/host/ListHost";
 
 
 function home() {
@@ -16,7 +17,7 @@ function home() {
 }
 
 function list() {
-  return <FloorHost page={'ListPage'} />
+  return <ListHost page={'ListPage'} />
 /*  return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>list!</Text>

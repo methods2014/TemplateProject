@@ -53,7 +53,7 @@ export default class PagesManager{
       })
     }).then((response) => response.json())
     .then((responseJson) => {
-      console.dir(responseJson)
+      //console.dir(responseJson)
       return responseJson;
     })
     .catch((error) => {

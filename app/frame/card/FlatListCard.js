@@ -2,53 +2,43 @@ import React from 'react'
 import {
   StyleSheet,
   View,
-  Text,
-  Dimensions,
-  FlatList, Image
 } from 'react-native'
 import BaseCard from "./base/BaseCard";
-import {px2dp, px2sp} from "../utils/ScreenUtils";
-
-// 获得屏幕宽高
-const screenWidth = Dimensions.get('window').width
+import CardsManager from "../manager/CardsManager";
 
 export default class FlatListCard extends BaseCard {
 
-  constructor(props) {
-    super(props)
-  }
+    constructor(props) {
+        super(props)
+    }
 
-  _renderImage= (item) => {
-    return  (
-        <View style={{
-          flex:1,
-          flexDirection: 'column',
-          alignItems:'center',
-          justifyContent: 'center'}}>
-            <Image style={{width: screenWidth/2 -16, height: screenWidth/2 -16}} source={{ uri: item.imgUrl }}/>
-          <View style={{
-            width: screenWidth/2,
-            flexDirection: 'column',
-            alignItems:'flex-start',
-            justifyContent: 'center',
-            marginLeft:16,
-            marginTop: px2dp(20),
-            marginBottom: px2dp(20)}}>
-            <Text allowFontScaling={false} style={{ fontSize: px2sp(16), color: '#333',}} numberOfLines={2}>{item.desc}</Text>
-            <Text allowFontScaling={false} style={{ fontSize: px2sp(16), color: 'red'}} numberOfLines={1}>{item.price}</Text>
-          </View >
-        </View >
-    )
-  }
+    _renderItems = () => {
+        const result = []
+        let item1,index1
+        this._data.items.map((item, index) =>
+        {
+            let item2 = item
+            let index2 = index
+            if(index2%2 === 1){ //保证两列
+                result.push(CardsManager.getCard({name:'Product2Card', data: {item1, index1, item2, index2}}, this._data._onPress, index1))
+            }else{
+                item1 = item2
+                index1 = index2
+            }
+        })
+        return result
+    }
 
   render() {
     return (
         <View style={styles.wrapper}>
-          <FlatList style={{backgroundColor:'white'}}
+            {this._renderItems()}
+          {/*<FlatList style={{backgroundColor:'white'}}
+              keyExtractor={(item, index) => item + index}
               numColumns ={2}
               data={this._data.items}
               renderItem={ (item) => this._renderImage(item.item)}
-          />
+          />*/}
         </View >
     )
   }
@@ -57,7 +47,8 @@ export default class FlatListCard extends BaseCard {
 const styles = StyleSheet.create({
   wrapper: {
     flex:1,
-    flexDirection: 'row',
+    flexDirection: 'column',
+    flexWrap:'wrap',
     alignItems:'center',
     justifyContent: 'center',
   }
