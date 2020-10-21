@@ -8,6 +8,8 @@
 <img src="http://123.56.254.117:9000/shop/cart.png" width="375" height="667" />
 <img src="http://123.56.254.117:9000/shop/mine.png" width="375" height="667" />
 
+
+
 init
 基于React Naitve 搭建模板框架
 目的是通过简单配置就能开发一款App、或者内置到App中的一个模块，可以快速开发一个功能。
