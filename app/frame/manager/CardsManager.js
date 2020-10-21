@@ -8,6 +8,9 @@ import FlatListCard from "../card/FlatListCard";
 import ProductCard from "../card/ProductCard";
 import Product2Card from "../card/Product2Card";
 import CartProductCard from "../card/CartProductCard";
+import UserCard from "../card/UserCard";
+import Item3Card from "../card/Item3Card";
+import Item4Card from "../card/Item4Card";
 /**
  * 卡片管理器，所有卡片在此注册
  */
@@ -36,6 +39,13 @@ export default class CardsManager{
         return <Product2Card key={index} data={card.data} onPress={_onPress} ref={card.id} host={host}/>
       case 'CartProductCard':
         return <CartProductCard key={index} data={card.data} onPress={_onPress} ref={card.id} host={host}/>
+      case 'UserCard':
+        return <UserCard key={index} data={card.data} onPress={_onPress} ref={card.id} host={host}/>
+      case 'Item3Card':
+        return <Item3Card key={index} data={card.data} onPress={_onPress} ref={card.id} host={host}/>
+      case 'Item4Card':
+        return <Item4Card key={index} data={card.data} onPress={_onPress} ref={card.id} host={host}/>
+
     }
   }
 }

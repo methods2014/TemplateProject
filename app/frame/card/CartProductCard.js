@@ -20,16 +20,18 @@ export default class CartProductCard extends BaseCard{
   render() {
     return (
         <View style={styles.wrapper}>
+          <Image style={{width:px2dp(25),height:px2dp(25)}}
+                 source={require('../../image/frame/radio_selected.png')} />
           <Image style={styles.image} source={{ uri: this._data.imgUrl }}/>
           <View style={{height:100,
-            width: screenWidth - px2dp(124),
+            width: screenWidth - px2dp(160),
             paddingLeft: px2dp(12),
             justifyContent: 'space-between'}}>
            <Text allowFontScaling={false} style={{ fontSize: px2sp(16), color: '#333' }} numberOfLines={2}>
              {this._data.desc}</Text>
             <View style={{
               flexDirection: 'row',
-              width: screenWidth - px2dp(136),
+              width: screenWidth - px2dp(180),
               justifyContent: 'space-between'}}>
               <Text allowFontScaling={false} style={{ fontSize: px2sp(18), color: 'red' }} numberOfLines={1}>{this._data.price}</Text>
               <Text allowFontScaling={false} style={{ fontSize: px2sp(18), color: '#333' }} numberOfLines={1}>- [ {this._data.count} ] +</Text>
@@ -57,6 +59,9 @@ const styles = StyleSheet.create({
   image: {
     width: px2dp(100),
     height: px2dp(100),
+    marginLeft:px2dp(20),
+    borderWidth:1,
+    borderColor:'#cccccc',
     backgroundColor:'#fff'
   }
 })

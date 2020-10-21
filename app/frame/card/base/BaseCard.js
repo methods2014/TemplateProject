@@ -1,5 +1,5 @@
 /**
-* 基础卡片 2020/08/13
+* 基础卡片
 */
 import React from 'react'
 

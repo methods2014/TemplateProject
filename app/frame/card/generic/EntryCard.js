@@ -1,5 +1,5 @@
 /**
-* 入口展示条卡片 2020/08/7
+* 入口展示条卡片
 */
 import React from 'react'
 import {
@@ -17,9 +17,12 @@ export default class EntryCard extends BaseCard {
   //绘制左边文本
   _renderLeftText= () => {
       return (
-        <Text style={[ { fontSize: px2sp(16), color: '#8a8a8a' }, (this._data.leftText && this._data.leftText.style)]}
+      <View style={{flexDirection:'row'}}>
+          {this._data.leftImage ? <Image style={{width:px2dp(18), height:px2dp(18)}} source={{uri:this._data.leftImage}} /> :null}
+            <Text style={[ { fontSize: px2sp(16), color: '#8a8a8a',marginLeft: px2dp(10)}, (this._data.leftText && this._data.leftText.style)]}
               allowFontScaling={false} numberOfLines={1}>{this._data.leftText}
-        </Text>
+            </Text>
+      </View>
       )
   }
 

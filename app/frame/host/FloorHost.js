@@ -7,6 +7,7 @@ import RootView from '../view/RootView'
 import HeaderCard from '../card/base/HeaderCard'
 import React from 'react'
 import CardsManager from '../manager/CardsManager'
+import FooterCard from "../card/base/FooterCard";
 
 export default class FloorHost extends BaseHost{
 
@@ -37,6 +38,7 @@ export default class FloorHost extends BaseHost{
         <ScrollView  keyboardShouldPersistTaps="handled" style={[{backgroundColor: '#ffffff', flex: 1 },(this.style)]}>
           {this._renderCards()}
         </ScrollView>
+        {this.data.footer ? <FooterCard data={this.footer} onPress={this._onPress}/> : null}
       </RootView>
     )
   }
